@@ -12,7 +12,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="testgit" />
+          <element id="module-output" name="DoSth" />
         </element>
       </element>
       <element id="directory" name="META-INF">

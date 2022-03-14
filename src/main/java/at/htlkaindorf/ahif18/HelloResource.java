@@ -1,4 +1,4 @@
-package com.example.testgit;
+package at.htlkaindorf.ahif18;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
