@@ -6,66 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="CSS%20files/colours.css">
     <link rel="stylesheet" href="CSS%20files/startCss.css">
-    </style>
+
 </head>
+
 <body class="firstGrey">
 
-<!--<div id="startPage" class="carousel slide" data-ride="carousel">
 
-    <ul class="carousel-indicators">
-        <li data-target="#start" data-slide-to="0" class="active"></li>
-        <li data-target="#start" data-slide-to="1"></li>
-    </ul>
+    <div class="row" style="width: 140%">
+        <div class="col-sm-1">
+            <!--Navigation bar-->
+            <div id="nav-placeholder"></div>
 
-
-    <div class="carousel-inner">
-        <div class="carousel-item active pictures">
-                <img width="50%" style="margin-left: 3%;" src="Pics/logo2.png" alt="DoSth">
+            <script>
+                $(function(){
+                    $("#nav-placeholder").load("NavBar.html");
+                });
+            </script>
+            <!--end of Navigation bar-->
         </div>
-        <div class="carousel-item pictures">
-            <img width="50%" style="margin-left: 3%; border-radius:5px" src="Pics/Moto.jpg" alt="Motto">
+        <div class="col-sm-7">
+            <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active pictures">
+                        <img style="width: 60%;  margin-left: 20%;" src="Pics/logo2.png" alt="Logo">
+                    </div>
+                    <div class="carousel-item pictures">
+                        <img style="width: 60%; margin-left: 20%; border-radius: 5%" src="Pics/Moto.jpg" alt="Motto">
+                    </div>
+
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
         </div>
     </div>
 
-    <a class="carousel-control-prev" href="#start" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#start" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-
-</div>-->
-
-<!-- Carousel -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-    <!-- Indicators/dots -->
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    </div>
-
-    <!-- The slideshow/carousel -->
-    <div class="carousel-inner">
-        <div class="carousel-item active pictures">
-            <img style="width: 60%;  margin-left: 20%;" src="Pics/logo2.png" alt="Logo">
-        </div>
-        <div class="carousel-item pictures">
-            <img style="width: 60%; margin-left: 20%; border-radius: 5%" src="Pics/Moto.jpg" alt="Motto">
-        </div>
-
-    </div>
-
-    <!-- Left and right controls/icons -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
 
 </body>
 </html>
