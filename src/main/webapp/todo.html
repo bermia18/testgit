@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDo</title>
+    <meta charset="utf-8"/>
+
+    <style>
+        .topnav{
+            border: 1px solid black;
+            background-color: #ED6202;
+            margin-left: 12%;
+            width: 68%;
+            height: 25%;
+            top: 0;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+
+            border-bottom-right-radius: 2% 10%;
+            border-bottom-left-radius: 2% 10%;
+        }
+        .toprightnav{
+            border: 1px solid black;
+            background-color: #ED6202;
+            margin-left: 85%;
+            width: 15%;
+            height: 25%;
+            top: 0;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+
+            border-bottom-left-radius: 8% 10%;
+        }
+
+        .todo{
+            border: 1px solid black;
+            background-color: #ADA8B1;
+            margin-left: 12%;
+            width: 88%;
+            height: 67.5%;
+            top: 30%;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+
+            border-top-left-radius: 2% 6%;
+            border-bottom-left-radius: 2% 6%;
+            display: flex;
+        }
+        .todochild{
+            width: 33%;
+            text-align: center;
+        }
+        .spruch{
+            display: block;
+            margin-top: 2%;
+            margin-left: 5%;
+            margin-right: 5%;
+            font-size: 1.5em;
+            color: white;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #logo{
+            width: 100%;
+        }
+        h2{
+            text-align: center;
+            margin-top: 0;
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        li{
+            text-align: left;
+            font-size: 1.5em;
+        }
+        h1{
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+<div class="topnav">
+    <label class="spruch">Wer sein eigenes Leben und das seiner Mitmenschen als sinnlos empfindet, der ist nicht nur unglücklich, sondern kaum lebensfähig.</label>
+    </br>
+    <label class="spruch">~Albert Einstein</label>
+</div>
+
+<div class="toprightnav">
+    <img id="logo" src="Logo.png" alt="">
+    <h2>21.03.2022</h2>
+</div>
+
+<div class="todo">
+    <div class="todochild">
+        <h1 style="background-color: #E0E0DF;">Work</h1>
+
+        <ul>
+            <li>Task1</li>
+            <li>Task2</li>
+        </ul>
+    </div>
+    <div class="todochild" style="background-color: #E0E0DF; border-left: 1px solid black; border-right: 1px solid black;">
+        <h1 style="background-color: #ADA8B1;">Hobbys</h1>
+
+        <table>
+
+        </table>
+    </div>
+    <div class="todochild">
+        <h1 style="background-color: #E0E0DF;">Done</h1>
+
+        <table>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
