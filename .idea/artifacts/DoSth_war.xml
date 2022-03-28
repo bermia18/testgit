@@ -9,7 +9,7 @@
         <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
-    <root id="archive" name="DoSth-1.0-SNAPSHOT.war">
+    <root id="archive" name="testgit-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="DoSth:war exploded" />
     </root>
   </artifact>
