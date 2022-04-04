@@ -1,48 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>Hilfe</title>
-
-  <style>
-    .helptext{
-      border: 1px solid black;
-      width: 70%;
-      height: 60%;
-      background-color: #ED6202;
-      position: fixed;
-      top: 2.5%;
-      left: 15%;
-      border-radius: 2% 2% 2% 2%;
-    }
-    .helpPhoneNumber{
-      border: 1px solid black;
-      width: 70%;
-      height: 20%;
-      background-color: #ED6202;
-      position: fixed;
-      top: 67%;
-      left: 15%;
-      border-radius: 2% 2% 2% 2%;
-    }
-    label{
-      color: white;
-      font-size: 2em;
-      display: block;
-      margin-left: 5%;
-      margin-top: 5%;
-      margin-right: 5%;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="CSS%20files/helpCss.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <body>
+
+<div>
+  <!--Navigation bar-->
+  <div id="nav-placeholder"></div>
+
+  <script type="application/javascript">
+    $(function () {
+      $("#nav-placeholder").load("NavBar.html");
+    });
+  </script>
+  <!--end of Navigation bar-->
+</div>
 
 <div class="helptext">
   <label>
     „Niemand ist nutzlos in dieser Welt, der einem anderen die Bürde leichter macht.“
   </label>
   <label>
-    ~Charles Dick(ens)
+    ~Charles Dickens
   </label>
 </div>
 

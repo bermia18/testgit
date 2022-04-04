@@ -70,9 +70,17 @@ h2 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-li {
-    text-align: left;
+.tasks {
     font-size: 1.5em;
+    margin-top: 5%;
+    border: 1px solid black;
+
+}
+
+.add{
+    float: right;
+    width: 6%;
+    margin: 1%
 }
 
 h1 {

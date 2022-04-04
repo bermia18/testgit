@@ -1,0 +1,29 @@
+.helptext{
+    border: 1px solid black;
+    width: 70%;
+    height: 60%;
+    background-color: #ED6202;
+    position: fixed;
+    top: 2.5%;
+    left: 15%;
+    border-radius: 2% 2% 2% 2%;
+}
+.helpPhoneNumber{
+    border: 1px solid black;
+    width: 70%;
+    height: 20%;
+    background-color: #ED6202;
+    position: fixed;
+    top: 67%;
+    left: 15%;
+    border-radius: 2% 2% 2% 2%;
+}
+label{
+    color: white;
+    font-size: 2em;
+    display: block;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 5%;
+    text-align: center;
+}
