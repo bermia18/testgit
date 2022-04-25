@@ -1,0 +1,20 @@
+table{
+    width: 80%;
+    height: 90%;
+    position: fixed;
+    left: 20%;
+    top: 7%;
+}
+.grey{
+    width: 5%;
+    background-color: #ADA8B1;
+    text-align: center;
+}
+.orange{
+    width: 45%;
+    background-color: #ED6202;
+}
+#headline{
+    background-color: #ADA8B1;
+    height: 12%;
+}
