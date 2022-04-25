@@ -14,15 +14,61 @@
 <body onload="loadTasks();">
 
 <div>
-<!--Navigation bar-->
-<div id="nav-placeholder"></div>
+    <!--Navigation bar-->
+    <div id="nav-placeholder"></div>
 
-<script type="application/javascript">
-    $(function () {
-        $("#nav-placeholder").load("NavBar.html");
-    });
-</script>
-<!--end of Navigation bar-->
+    <script type="application/javascript">
+        $(function () {
+            $("#nav-placeholder").load("NavBar.html");
+        });
+
+    </script>
+    <!--end of Navigation bar-->
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered" style="width: 600px;">
+        <div class="modal-content">
+            <form onsubmit="addTask();">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Work</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="form-floating mb-3 mt-3">
+                        <input type="text" class="form-control" id="title" placeholder="Enter title" name="title">
+                        <label for="title">Titel</label>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <label for="startDate">Start</label>
+                            <input id="startDate" class="form-control" type="date"/>
+                            <span id="startDateSelected"></span>
+                        </div>
+                        <div class="col-lg-5">
+                            <label for="endDate">End</label>
+                            <input id="endDate" class="form-control" type="date"/>
+                            <span id="endDateSelected"></span>
+                        </div>
+                    </div>
+                    </br>
+                    <label for="comment" id="descripiton">Description</label>
+                    <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-bs-slide="modal">Success</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 <div>
@@ -41,12 +87,18 @@
 
     <div class="todo">
         <div class="todochild">
-            <h1 style="background-color: #E0E0DF; ">Work <input class="add" type="image" src="Pics/add.png" name="saveForm" class="btTxt submit" onclick="" id="saveFormWork" /></h1>
+            <h1 style="background-color: #E0E0DF; ">Work <input class="add" type="image" src="Pics/add.png"
+                                                                name="saveForm" class="btTxt submit"
+                                                                data-bs-toggle="modal" data-bs-target="#myModal"
+                                                                id="saveFormWork"/></h1>
 
             <div id="work"></div>
         </div>
-        <div class="todochild" style="background-color: #E0E0DF; border-left: 1px solid black; border-right: 1px solid black;">
-            <h1 style="background-color: #E0E0DF; ">Hobbys <input class="add" type="image" src="Pics/add.png" name="saveForm" class="btTxt submit" onclick="" id="saveformHobbys" /></h1>
+        <div class="todochild"
+             style="background-color: #E0E0DF; border-left: 1px solid black; border-right: 1px solid black;">
+            <h1 style="background-color: #ADA8B1; ">Hobbys <input class="add" type="image" src="Pics/add.png"
+                                                                  name="saveForm" class="btTxt submit" onclick=""
+                                                                  id="saveformHobbys"/></h1>
 
             <table>
 
@@ -62,5 +114,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>

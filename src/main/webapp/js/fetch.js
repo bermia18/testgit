@@ -14,3 +14,12 @@ function loadTasks(){
             })
         })
 }
+
+function addTask(){
+    const title = document.getElementById('title');
+    const start = document.getElementById('startDate');
+    const end = document.getElementById('endDate');
+    const comment = document.getElementById('comment');
+
+
+}

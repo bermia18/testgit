@@ -72,9 +72,19 @@ h2 {
 
 .tasks {
     font-size: 1.5em;
-    margin-top: 5%;
+    margin-top: 2%;
     border: 1px solid black;
 
+}
+
+#modal {
+    position: absolute;
+    z-index: 99;
+    top: 25%;
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    display: none;
 }
 
 .add{
