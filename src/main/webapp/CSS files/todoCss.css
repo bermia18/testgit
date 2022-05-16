@@ -44,7 +44,7 @@
 }
 
 .todochild {
-    width: 33%;
+    width: 33.333%;
     text-align: center;
 }
 
@@ -95,4 +95,9 @@ h2 {
 
 h1 {
     font-size: 2em;
+}
+
+#work{
+    text-align: left;
+    margin-left: 5%;
 }

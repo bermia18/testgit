@@ -15,7 +15,7 @@
           <element id="module-output" name="DoSth" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.22" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.24" />
         </element>
       </element>
       <element id="directory" name="META-INF">

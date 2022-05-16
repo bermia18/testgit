@@ -1,0 +1,60 @@
+#suggestionField{
+    background-color: black;
+    position: fixed;
+    width: 70%;
+    height: 95%;
+    left: 15%;
+    top: 2.5%;
+    background-color: #ADA8B1;
+    border: 1px solid black;
+    overflow: auto;
+
+    border-top-left-radius: 3.5% 5%;
+    border-bottom-left-radius: 3.5% 5%;
+    border-top-right-radius: 3.5% 5%;
+    border-bottom-right-radius: 3.5% 5%;
+}
+.innerSuggestion{
+    width: 90%;
+    background-color: #ED6202;
+    margin: auto;
+    margin-top: 2.5%;
+    height: 15%;
+    border: 2px solid black;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+
+
+    border-top-left-radius: 2% 15%;
+    border-bottom-left-radius: 2% 15%;
+    border-top-right-radius: 2% 15%;
+    border-bottom-right-radius: 2% 15%;
+}
+.suggestionText{
+    position: relative;
+    top: 25%;
+}
+#newSuggestions{
+    position: absolute;
+    left: 87%;
+    top: 10%;
+    background-color: #ED6202;
+    width: 12%;
+    height: 20%;
+    color: white;
+    border: 1px solid black;
+    text-align: center;
+
+    border-top-left-radius: 15% 15%;
+    border-bottom-left-radius: 15% 15%;
+    border-top-right-radius: 15% 15%;
+    border-bottom-right-radius: 15% 15%;
+}
+
+.addSuggestion{
+    position: relative;
+    margin-left: 70%;
+    width: 20%;
+    height: 50%;
+}
