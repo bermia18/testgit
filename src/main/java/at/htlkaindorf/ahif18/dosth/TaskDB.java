@@ -11,20 +11,20 @@ public class TaskDB {
 
     private static TaskDB theInstance;
 
-    private List<Task> taskList;
+    private List<Task> todoList;
     private List<Suggestion> allSuggestions;
     private List<Suggestion> currentSuggestions;
 
     private TaskDB() {
-        taskList = new ArrayList<>();
+        todoList = new ArrayList<>();
 
-        taskList.add(new Task(1,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(2,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(3,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(4,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(5,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(6,"DoThis", "12-02-1220", "12-02-2022", "Da is was", false));
-        taskList.add(new Task(7,"Hallo", "12-02-1220", "12-02-2022", "Da is was", false));
+        todoList.add(new Task(1,"saveFromHobbys", "DoThat", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(2,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(3,"saveFromHobbys", "DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(4,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(5,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(6,"saveFromHobbys", "DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
+        todoList.add(new Task(7,"saveFromWork","Hallo", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
 
         allSuggestions = new ArrayList<>();
 
@@ -48,7 +48,7 @@ public class TaskDB {
     }
 
     public void addTask(Task task){
-        taskList.add(task);
+        todoList.add(task);
     }
 
 
@@ -59,8 +59,8 @@ public class TaskDB {
         return theInstance;
     }
 
-    public List<Task> getTaskList(){
-        return taskList;
+    public List<Task> getTodoList(){
+        return todoList;
     }
 
     public List<Suggestion> getCurrentSuggestions() {

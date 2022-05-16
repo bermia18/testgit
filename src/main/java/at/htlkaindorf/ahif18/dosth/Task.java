@@ -11,9 +11,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Task {
     private int id;
+    private String type;
     private String title;
-    private String from;
-    private String to;
+    private LocalDate from;
+    private LocalDate to;
     private String description;
     private boolean checked;
 }
