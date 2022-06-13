@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Path("/tasks")
+/**
+ * Hello Ressource for tasks
+ * @project DoSth.
+ * @author Michael M
+ * @since 14.03.2022
+ */
 public class HelloResource {
 
     @Context
@@ -14,6 +20,9 @@ public class HelloResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    /**
+     * Get method to get all Tasks in the todolist
+     */
     public List<Task> getTasks() {
         return TaskDB.getInstance().getTodoList();
     }
@@ -21,6 +30,9 @@ public class HelloResource {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
+    /**
+     * PUT Method to update the tasks in checked
+     */
     public Response checkTask(@PathParam("id") int id) {
         List<Task> list = TaskDB.getInstance().getTodoList();
 
@@ -39,6 +51,9 @@ public class HelloResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
+    /**
+     * POST adds Task to the list
+     */
     public Response addTask(Task task) {
 
         TaskDB.getInstance().addTask(task);

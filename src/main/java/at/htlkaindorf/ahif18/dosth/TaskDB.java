@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+/**
+ * Database for the todolist and the suggestions
+ * @project DoSth.
+ * @author Michael M, Michael B
+ * @since 13.06.2022
+ */
 public class TaskDB {
 
     private static TaskDB theInstance;
@@ -15,6 +21,9 @@ public class TaskDB {
     private List<Suggestion> allSuggestions;
     private List<Suggestion> currentSuggestions;
 
+    /**
+     * Constructor for the database, fills the suggestions with values
+     */
     private TaskDB() {
         todoList = new ArrayList<>();
         finished = new ArrayList<>();
@@ -48,15 +57,27 @@ public class TaskDB {
         currentSuggestions.add(allSuggestions.get(0));
     }
 
+    /**
+     * adds a Task to the todoList
+     * @param task task that should be added
+     */
     public void addTask(Task task){
         todoList.add(task);
     }
 
+    /**
+     * updates the task to checked after you clicked the checkbox
+     * @param task task that should be updated
+     */
     public void updateTask(Task task){
         task.setChecked(true);
 
     }
 
+    /**
+     * getInstance class for the singleton Pattern
+     * @return instance of TaskDB
+     */
     public synchronized static TaskDB getInstance(){
         if(theInstance == null){
             theInstance = new TaskDB();
@@ -64,14 +85,25 @@ public class TaskDB {
         return theInstance;
     }
 
+    /**
+     * gets the complete todoList
+     * @return todoList
+     */
     public List<Task> getTodoList(){
         return todoList;
     }
 
+    /**
+     * gets the current Suggestions
+     * @return current Suggestions
+     */
     public List<Suggestion> getCurrentSuggestions() {
         return currentSuggestions;
     }
 
+    /**
+     * adds new suggestions to the current suggestions
+     */
     public void addSuggestions(){
         currentSuggestions.clear();
         Random rand = new Random();
@@ -87,12 +119,20 @@ public class TaskDB {
         }
     }
 
+    /**
+     * gets the suggestion of your choice
+     * @param id of the suggestion you clicked on
+     */
     public void suggestionChange(int id){
         String title = currentSuggestions.get(id).getTitle();
         todoList.add(new Task(todoList.size(), "saveFromHobbys", title, LocalDate.now(), LocalDate.now().plusDays(1),
                 "Today you should try" + title , false));
     }
 
+    /**
+     * removes the suggestion you added
+     * @param suggestionId id of suggestion
+     */
     public void removeSuggestion(int suggestionId){
         currentSuggestions.remove(suggestionId);
     }

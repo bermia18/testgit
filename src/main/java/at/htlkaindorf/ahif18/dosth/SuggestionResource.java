@@ -30,14 +30,6 @@ public class SuggestionResource {
         return Response.ok().build();
     }
 
-    /*@GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{id}")
-    public Response getSuggesion(@PathParam("id") int id){
-        TaskDB.getInstance().suggestionChange(id);
-        return Response.ok().build();
-    }*/
-
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
