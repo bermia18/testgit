@@ -4,6 +4,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Path("/tasks")
 public class HelloResource {
@@ -15,6 +16,23 @@ public class HelloResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Task> getTasks() {
         return TaskDB.getInstance().getTodoList();
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public Response checkTask(@PathParam("id") int id) {
+        List<Task> list = TaskDB.getInstance().getTodoList();
+
+        Task changedTask = list.stream().filter(task -> task.getId() == id).findFirst().get();
+
+        TaskDB.getInstance().updateTask(changedTask);
+
+        try{
+            return Response.ok(changedTask).build();
+        }catch (NoSuchElementException nsee){
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
 

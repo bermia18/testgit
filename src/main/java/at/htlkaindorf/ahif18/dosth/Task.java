@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Task {
     private int id;
     private String type;
