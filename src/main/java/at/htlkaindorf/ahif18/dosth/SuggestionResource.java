@@ -37,4 +37,5 @@ public class SuggestionResource {
 
         return Response.ok().build();
     }
+    
 }

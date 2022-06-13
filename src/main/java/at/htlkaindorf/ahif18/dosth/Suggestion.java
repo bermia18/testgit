@@ -7,11 +7,9 @@ import java.util.Objects;
 @Data
 public class Suggestion {
     private String title;
-    private int likelyValue;
 
     public Suggestion(String title) {
         this.title = title;
-        likelyValue = 1;
     }
 
     @Override

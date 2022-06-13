@@ -7,13 +7,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-public class TaskDB {
+public class TaskDB implements Subjekt {
 
     private static TaskDB theInstance;
 
     private List<Task> todoList;
     private List<Suggestion> allSuggestions;
     private List<Suggestion> currentSuggestions;
+
+    private List<Beobachter> beobachterListe = new ArrayList<Beobachter>();
+    private String aktion;
 
     private TaskDB() {
         todoList = new ArrayList<>();
@@ -48,6 +51,7 @@ public class TaskDB {
     }
 
     public void addTask(Task task){
+        System.out.println(task);
         todoList.add(task);
     }
 
@@ -80,10 +84,28 @@ public class TaskDB {
                 i++;
             }
         }
+
+        this.benachrichtigeBeobachter();
     }
 
     public void removeSuggestion(int suggestionId){
         currentSuggestions.remove(suggestionId);
     }
 
+    @Override
+    public void registriereBeobachter(Beobachter beobachter) {
+        this.beobachterListe.add(beobachter);
+    }
+
+    @Override
+    public void entferneBeobachter(Beobachter beobachter) {
+        this.beobachterListe.remove(beobachter);
+    }
+
+    @Override
+    public void benachrichtigeBeobachter() {
+        for (Beobachter beobachter : beobachterListe){
+            beobachter.aktualisiere();
+        }
+    }
 }

@@ -1,3 +1,11 @@
+const interval = setInterval(function (){
+    loadSuggestions();
+}, 30000)
+
+function testfun(){
+    alert("hello");
+}
+
 function loadTasks(){
     fetch('./api/tasks/')
         .then(function (response){
@@ -20,7 +28,6 @@ function loadTasks(){
                             "</br>";
                     }
                 })
-
             })
         })
 }
@@ -40,19 +47,33 @@ function loadSuggestions(){
                 suggestions.innerHTML = "";
 
                 for(var i = 0; i < data.length; i++){
-                    suggestions.innerHTML += "<div class='innerSuggestion'> " + data[i].title + "<button class='addSuggestion' onclick='addSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
+                    suggestions.innerHTML += "<div class='innerSuggestion'> " + data[i].title + "<button class='addSuggestion' onclick='removeSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
                 }
-
             })
         })
 }
 
-function addSuggestion(id){
-    removeSuggestion(id);
+function addSuggestion(index){
+    removeSuggestion(index);
+    const task = {id: 7, type: 'saveFromWork', title: 'GIMME GIMME', from: new Date('1220-12-02'), to: new Date('2022-12-02'), description: 'Da is was', checked: false};
+
+    fetch('./api/tasks/', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(task)
+    }).then(
+        function (response) {
+            document.getElementById("title").value="";
+            document.getElementById("startDate").value="";
+            document.getElementById("endDate").value="";
+            document.getElementById("descripiton").value="";
+            loadTasks();
+        }
+    )
 }
 
-function removeSuggestion(id){
-    fetch('./api/suggestions/' + id, {
+function removeSuggestion(index){
+    fetch('./api/suggestions/' + index, {
         method: "DELETE"
     })
     loadSuggestions();
@@ -100,6 +121,6 @@ function addTask(){
                 loadTasks();
             }
         )
-
-
 }
+
+
