@@ -11,23 +11,18 @@ import java.util.Timer;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 @WebListener
 @ApplicationPath("/api")
 public class HelloApplication extends Application implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        /*Timer timer = new Timer();
-
-        int period = 1000;
-        timer.schedule(new MyTimeTask(), period);*/
-
-        //Wird nur einmal ausgeführt --> Sollte alle 1000 ms einmal ausgeführt werden
+        new Beobachter();
 
         Runnable drawRunnable = new Runnable() {
             @Override
             public void run() {
-                System.out.println("run ausgeführt");
                 TaskDB.getInstance().addSuggestions();
             }
         };

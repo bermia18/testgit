@@ -4,10 +4,10 @@ package at.htlkaindorf.ahif18.dosth;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Random;
+import java.util.logging.Logger;
 
-public class TaskDB implements Subjekt {
+public class TaskDB {
 
     private static TaskDB theInstance;
     private List<Task> todoList;
@@ -17,6 +17,8 @@ public class TaskDB implements Subjekt {
 
     private List<Beobachter> beobachterListe = new ArrayList<Beobachter>();
     private String aktion;
+
+    private List<String> addedSuggestions = new ArrayList<>();
 
     private TaskDB() {
         todoList = new ArrayList<>();
@@ -61,6 +63,13 @@ public class TaskDB implements Subjekt {
 
     }
 
+    public void addToAddedSuggestions(String suggestion){
+        addedSuggestions.add(suggestion);
+        System.out.println("Länge der Liste: " + addedSuggestions.size());
+        Logger logger = Logger.getLogger(getClass().getName());
+        logger.info("HALLO");
+    }
+
     public synchronized static TaskDB getInstance(){
         if(theInstance == null){
             theInstance = new TaskDB();
@@ -89,8 +98,6 @@ public class TaskDB implements Subjekt {
                 i++;
             }
         }
-
-        this.benachrichtigeBeobachter();
     }
 
     public void suggestionChange(int id){
@@ -100,23 +107,25 @@ public class TaskDB implements Subjekt {
     }
 
     public void removeSuggestion(int suggestionId){
+        this.benachrichtigeBeobachter(currentSuggestions.get(suggestionId));
         currentSuggestions.remove(suggestionId);
     }
 
-    @Override
     public void registriereBeobachter(Beobachter beobachter) {
         this.beobachterListe.add(beobachter);
     }
 
-    @Override
     public void entferneBeobachter(Beobachter beobachter) {
         this.beobachterListe.remove(beobachter);
     }
 
-    @Override
-    public void benachrichtigeBeobachter() {
+    public void benachrichtigeBeobachter(Suggestion suggestion) {
         for (Beobachter beobachter : beobachterListe){
-            beobachter.aktualisiere();
+            beobachter.notify(suggestion);
         }
+    }
+
+    public List<Suggestion> getAllSuggestions() {
+        return allSuggestions;
     }
 }
