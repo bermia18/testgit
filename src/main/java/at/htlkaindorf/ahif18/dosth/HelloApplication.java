@@ -22,6 +22,10 @@ import java.util.logging.Logger;
  * @since 15.06.2022
  */
 public class HelloApplication extends Application implements ServletContextListener {
+
+    /**
+     * makes 4 new suggestions every 30 seconds
+     */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         new Beobachter();

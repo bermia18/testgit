@@ -22,26 +22,19 @@ public class TaskDB {
     private List<Suggestion> allSuggestions;
     private List<Suggestion> currentSuggestions;
 
-    /**
-     * Constructor for the database, fills the suggestions with values
-     */
+
     private List<Beobachter> beobachterListe = new ArrayList<Beobachter>();
     private String aktion;
 
     private List<String> addedSuggestions = new ArrayList<>();
 
+    /**
+     * Constructor for the database, fills the suggestions with values
+     */
     private TaskDB() {
         todoList = new ArrayList<>();
         finished = new ArrayList<>();
 
-        /*todoList.add(new Task(1,"saveFromHobbys", "DoThat", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(2,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(3,"saveFromHobbys", "DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(4,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(5,"saveFromWork","DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(6,"saveFromHobbys", "DoThis", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-        todoList.add(new Task(7,"saveFromWork","Hallo", LocalDate.parse("1220-12-02"), LocalDate.parse("2022-12-02"), "Da is was", false));
-*/
         allSuggestions = new ArrayList<>();
 
         allSuggestions.add(new Suggestion("Wandern", 1));
@@ -137,6 +130,7 @@ public class TaskDB {
 
     /**
      * removes the suggestion you added
+     * sends a notification to the observer by calling the function benachrichtigeBeobachter(Suggestion suggestion)
      * @param suggestionId id of suggestion
      */
     public void removeSuggestion(int suggestionId){
@@ -144,20 +138,36 @@ public class TaskDB {
         currentSuggestions.remove(suggestionId);
     }
 
+    /**
+     * registers an observer to the list of observers
+     * @param beobachter the observer
+     */
     public void registriereBeobachter(Beobachter beobachter) {
         this.beobachterListe.add(beobachter);
     }
 
+    /**
+     * removes an observer to the list of observers
+     * we actually dont really need this function because we always have only one observer
+     * @param beobachter the observer to remove
+     */
     public void entferneBeobachter(Beobachter beobachter) {
         this.beobachterListe.remove(beobachter);
     }
 
+    /**
+     * sends a notification to the observer
+     * @param suggestion the suggestion which was added to the dayplan
+     */
     public void benachrichtigeBeobachter(Suggestion suggestion) {
         for (Beobachter beobachter : beobachterListe){
             beobachter.notify(suggestion);
         }
     }
 
+    /**
+     * get-function for the pool with all the possible suggestions
+     */
     public List<Suggestion> getAllSuggestions() {
         return allSuggestions;
     }

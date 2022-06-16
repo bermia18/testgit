@@ -1,20 +1,24 @@
 package at.htlkaindorf.ahif18.dosth;
 
-import javax.script.Invocable;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
+/**
+ * Observer for the Observer Pattern
+ * @project DoSth.
+ * @author Michael B
+ * @since 15.06.2022
+ */
 public class Beobachter {
 
+    /**
+     * Constructor for the Observer class, registers the Observer to the List to observe (In TaskDB)
+     */
     public Beobachter() {
         TaskDB.getInstance().registriereBeobachter(this);
     }
 
+    /**
+     * calling the increase function of SuggestionStats class
+     * notify is called in TaskDB
+     */
     public void notify(Suggestion suggestion) {
         SuggestionStats.getInstance().increase(suggestion);
     }
