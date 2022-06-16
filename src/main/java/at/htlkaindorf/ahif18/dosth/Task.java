@@ -9,7 +9,12 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+/**
+ * Dataclass for the Tasks
+ * @project DoSth.
+ * @author Michael Maier
+ * @since 16.05.2022
+ */
 public class Task {
     private int id;
     private String type;

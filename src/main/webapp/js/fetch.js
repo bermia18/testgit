@@ -1,11 +1,3 @@
-const interval = setInterval(function (){
-    loadSuggestions();
-}, 30000)
-
-function testfun(){
-    alert("hello");
-}
-
 function loadTasks(){
     fetch('./api/tasks/')
         .then(function (response){
@@ -36,6 +28,7 @@ function loadTasks(){
                             "</br>";
                     }
                 })
+
             })
         })
 }
@@ -66,7 +59,7 @@ function loadSuggestions(){
                 suggestions.innerHTML = "";
 
                 for(var i = 0; i < data.length; i++){
-                    suggestions.innerHTML += "<div class='innerSuggestion'> " + data[i].title + "<button class='addSuggestion' onclick='removeSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
+                    suggestions.innerHTML += "<div class='innerSuggestion'> <div style='margin-left: 15%; margin-top:2%;'>" + data[i].title + "</div><button class='addSuggestion' onclick='addSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
                 }
 
             })
@@ -130,7 +123,6 @@ function addTask(){
                 loadTasks();
             }
         )
-
 
 
 }

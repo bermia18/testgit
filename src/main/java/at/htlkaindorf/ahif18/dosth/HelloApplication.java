@@ -15,6 +15,12 @@ import java.util.logging.Logger;
 
 @WebListener
 @ApplicationPath("/api")
+/**
+ * HelloApplication for tasks
+ * @project DoSth.
+ * @author Michael M, Michael B
+ * @since 15.06.2022
+ */
 public class HelloApplication extends Application implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

@@ -26,7 +26,7 @@ function loadTasks(){
                             "</br>";
                     }
                     else if(d.type == "saveFromWork") {
-                        tasks.innerHTML += "<div data-bs-toggle=\"modal\" data-bs-target=\"#myModal\"\n" + "onclick=\"getId(this.id);\" class='tasks'> " + d.title +
+                        tasks.innerHTML += "<div class='tasks'> " + d.title +
                             "<input onclick='checkedState(" + d.id + ")' style='float: right; margin-right: 10%;' type='checkbox' value='"+ d.id +"' id='flexCheckDefault' > </div>" +
                             "</br>";
                     }
@@ -67,7 +67,7 @@ function loadSuggestions(){
                 suggestions.innerHTML = "";
 
                 for(var i = 0; i < data.length; i++){
-                    suggestions.innerHTML += "<div class='innerSuggestion'> " + data[i].title + "<button class='addSuggestion' onclick='addSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
+                    suggestions.innerHTML += "<div class='innerSuggestion'> <div style='margin-left: 15%; margin-top:2%;'>" + data[i].title + "</div><button class='addSuggestion' onclick='addSuggestion(" + i + ")'>Add</button>" + "</div>" + "</br>";
                 }
 
             })
