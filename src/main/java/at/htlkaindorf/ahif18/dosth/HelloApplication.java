@@ -30,7 +30,7 @@ public class HelloApplication extends Application implements ServletContextListe
     public void contextInitialized(ServletContextEvent sce) {
         new Beobachter();
 
-        Runnable drawRunnable = new Runnable() {
+        /*Runnable drawRunnable = new Runnable() {
             @Override
             public void run() {
                 TaskDB.getInstance().addSuggestions();
@@ -38,6 +38,6 @@ public class HelloApplication extends Application implements ServletContextListe
         };
 
         ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
-        exec.scheduleAtFixedRate(drawRunnable , 0, 30, TimeUnit.SECONDS);
+        exec.scheduleAtFixedRate(drawRunnable , 0, 30, TimeUnit.SECONDS);*/
     }
 }

@@ -1,11 +1,3 @@
-const interval = setInterval(function (){
-    loadSuggestions();
-}, 30000)
-
-function testfun(){
-    alert("hello");
-}
-
 function loadTasks(){
     fetch('./api/tasks/')
         .then(function (response){
@@ -27,12 +19,12 @@ function loadTasks(){
                     }
                     else if(d.type == "saveFromWork") {
                         tasks.innerHTML += "<div class='tasks'> " + d.title +
-                            "<input onclick='checkedState(" + d.id + ")' style='float: right; margin-right: 10%;' type='checkbox' value='"+ d.id +"' id='flexCheckDefault' > </div>" +
+                            "<input onclick='checkedState(" + d.id + ")' style='float: right; margin-right: 10%; margin-top: 12px;' type='checkbox' value='"+ d.id +"' id='flexCheckDefault' > </div>" +
                             "</br>";
                     }
                     else if(d.type == "saveFromHobbys"){
                         tasks2.innerHTML += "<div class='tasks'> " + d.title +
-                            "<input onclick='checkedState(" + d.id + ")' style='float: right; margin-right: 10%;' type='checkbox' value='"+ d.id +"' id='flexCheckDefault' >  </div>" +
+                            "<input onclick='checkedState(" + d.id + ")' style='float: right; margin-right: 10%; margin-top: 12px;' type='checkbox' value='"+ d.id +"' id='flexCheckDefault' >  </div>" +
                             "</br>";
                     }
                 })
@@ -52,14 +44,10 @@ function checkedState(id){
 
 
 
-let id = 0;
-let name = null;
-function getId(id){
-    name = id;
-}
+
 
 function loadSuggestions(){
-    fetch('./api/suggestions')
+    fetch('./api/suggestions/')
         .then(function (response){
             response.json().then(function (data){
                 let suggestions = document.getElementById("suggestionField");
@@ -77,27 +65,38 @@ function loadSuggestions(){
 function addSuggestion(id){
     fetch('./api/suggestions/' + id, {
         method:"POST"
+    }).then(function (response){
+        counter = counter + 1;
+        removeSuggestion(id);
     })
-    removeSuggestion(id);
 }
 
 function removeSuggestion(id){
     fetch('./api/suggestions/' + id, {
         method: "DELETE"
+    }).then(function (response){
+        loadSuggestions();
+
     })
-    loadSuggestions();
+
 }
 
 function newSuggestions(){
-    fetch('./api/suggestions', {
+    fetch('./api/suggestions/', {
         method: 'POST'
+    }).then(function (response){
+        loadSuggestions();
     })
+}
 
-    loadSuggestions();
+let counter = 0;
+let name = null;
+function getId(id){
+    name = id;
 }
 
 function addTask(){
-    id = id+1;
+    counter = counter+1;
     const title = document.getElementById('title').value;
     const type = name;
     const from = document.getElementById('startDate').value;
@@ -115,7 +114,7 @@ function addTask(){
         return;
     }
 
-    const task = {id, type, title, from, to, description, checked};
+    const task = {counter, type, title, from, to, description, checked};
 
 
         fetch('./api/tasks/', {
@@ -127,13 +126,10 @@ function addTask(){
                 document.getElementById("title").value="";
                 document.getElementById("startDate").value="";
                 document.getElementById("endDate").value="";
-                document.getElementById("descripiton").value="";
+                document.getElementById("comment").value="";
                 loadTasks();
             }
         )
 
 
 }
-}
-
-

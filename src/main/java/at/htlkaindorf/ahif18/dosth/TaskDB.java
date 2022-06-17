@@ -124,7 +124,7 @@ public class TaskDB {
      */
     public void suggestionChange(int id){
         String title = currentSuggestions.get(id).getTitle();
-        todoList.add(new Task(todoList.size(), "saveFromHobbys", title, LocalDate.now(), LocalDate.now().plusDays(1),
+        todoList.add(new Task(todoList.size()+1, "saveFromHobbys", title, LocalDate.now(), LocalDate.now().plusDays(1),
                 "Today you should try" + title , false));
     }
 
